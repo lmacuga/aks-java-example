@@ -1,0 +1,19 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: kenobi-service
+  annotations:
+    getambassador.io/config: |
+      ---
+      apiVersion: ambassador/v0
+      kind:  Mapping
+      name:  kenobi_mapping
+      prefix: /kenobi/
+      service: kenobi-service:8080
+      timeout_ms: 60000
+spec:
+  type: ClusterIP
+  selector:
+    app: kenobi
+  ports:
+  - port: 8080

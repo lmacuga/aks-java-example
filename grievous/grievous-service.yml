@@ -1,0 +1,10 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: grievous-service
+spec:
+  type: ClusterIP
+  selector:
+    app: grievous
+  ports:
+  - port: 8080
